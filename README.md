@@ -241,6 +241,169 @@ print(numpy.mean(data, axis = 1))
 ```python
 
 ```
+### Data Visualization (Analyzing Data)
+
+In this analysis, we visualize the data from the analyzing data section.
+
+
+```python
+import numpy
+data = numpy.loadtxt(fname= 'inflammation-01.csv', delimiter = ',')
+```
+
+
+```python
+# Heat map of patient inflammation over time
+
+import matplotlib.pyplot
+image = matplotlib.pyplot.imshow(data)
+matplotlib.pyplot.show()
+```
+
+
+![png](output_1_0.png)
+
+
+
+```python
+# Average inflammation over time
+
+ave_inflammation = numpy.mean(data, axis = 0)
+ave_plot = matplotlib.pyplot.plot(ave_inflammation)
+matplotlib.pyplot.show()
+```
+
+
+![png](output_2_0.png)
+
+
+
+```python
+max_plot = matplotlib.pyplot.plot(numpy.amax(data, axis = 0))
+matplotlib.pyplot.show()
+```
+
+
+![png](output_3_0.png)
+
+
+
+```python
+min_plot = matplotlib.pyplot.plot(numpy.amin(data, axis = 0))
+matplotlib.pyplot.show()
+```
+
+
+![png](output_4_0.png)
+
+
+
+```python
+fig = matplotlib.pyplot.figure(figsize =(10.0, 3.0))
+
+axes1 = fig.add_subplot(1, 3, 1)
+axes2 = fig.add_subplot(1, 3, 2)
+axes3 = fig.add_subplot(1, 3, 3)
+
+axes1.set_ylabel('average')
+axes1.plot(numpy.mean(data, axis = 0))
+
+axes2.set_ylabel('max')
+axes2.plot(numpy.amax(data, axis = 0))
+
+axes3.set_ylabel('min')
+axes3.plot(numpy.amin(data, axis = 0))
+
+fig.tight_layout()
+
+matplotlib.pyplot.savefig('inflammation.png')
+matplotlib.pyplot.show()
+
+```
+
+
+![png](output_5_0.png)
+
+
+
+```python
+
+```
+
+## Multiple Files
+
+In this analysis, we combine multiple files.
+
+```python
+import glob
+```
+
+
+```python
+print(glob.glob('inflammation*.csv'))
+```
+
+    ['inflammation-10.csv', 'inflammation-09.csv', 'inflammation-11.csv', 'inflammation-06.csv', 'inflammation-05.csv', 'inflammation-08.csv', 'inflammation-01.csv', 'inflammation-07.csv', 'inflammation-04.csv', 'inflammation-03.csv', 'inflammation-02.csv', 'inflammation-12.csv']
+
+
+
+```python
+import glob
+import numpy
+import matplotlib.pyplot
+
+filenames = sorted(glob.glob('inflammation*.csv'))
+filenames = filenames[0:3]
+
+for filename in filenames:
+    print(filenames)
+    
+    data = numpy.loadtxt(fname=filename, delimiter = ',')
+    
+    fig = matplotlib.pyplot.figure(figsize = (10.0, 3.0))
+    
+    axes1 = fig.add_subplot(1, 3, 1)
+    axes2 = fig.add_subplot(1, 3, 2)
+    axes3 = fig.add_subplot(1, 3, 3)
+    
+    axes1.set_ylabel('average')
+    axes1.plot(numpy.mean(data, axis = 0))
+    
+    axes2.set_ylabel('max')
+    axes2.plot(numpy.amax(data, axis = 0))
+    
+    axes3.set_ylabel('min')
+    axes3.plot(numpy.amin(data, axis = 0))
+    
+    fig.tight_layout()
+    matplotlib.pyplot.show()
+```
+
+    ['inflammation-01.csv', 'inflammation-02.csv', 'inflammation-03.csv']
+
+
+
+![png](output_2_1.png)
+
+
+    ['inflammation-01.csv', 'inflammation-02.csv', 'inflammation-03.csv']
+
+
+
+![png](output_2_3.png)
+
+
+    ['inflammation-01.csv', 'inflammation-02.csv', 'inflammation-03.csv']
+
+
+
+![png](output_2_5.png)
+
+
+
+```python
+
+```
 
 
 ## Functions
@@ -808,6 +971,167 @@ def std_dev(sample):
 ```python
 
 ```
+
+### Creating Functions Part 1 (Functions)
+
+In this analysis, we create various functions.
+
+```python
+fahrenheit_val = 99
+celsius_val = ((fahrenheit_val - 32) *(5/9))
+
+print(celsius_val)
+```
+
+    37.22222222222222
+
+
+
+```python
+fahrenheit_val2 = 43
+celsius_val2 = ((fahrenheit_val2 -32) * (5/9))
+
+print(celsius_val2)
+```
+
+    6.111111111111112
+
+
+
+```python
+def explicit_fahr_to_celsius(temp):
+    # Assign the converted value to a variable
+    converted = ((temp - 32) * (5/9))
+    # Return the values of the new variable
+    return converted
+```
+
+
+```python
+def fahr_to_celsius(temp):
+    # Return converted values more effeciently using the return function without creating
+    # a new variable. This code does the same thing as the previous function but it is more
+    # explicit in explaining how the return command works.
+    return ((temp - 32) * (5/9) )
+```
+
+
+```python
+fahr_to_celsius(32)
+```
+
+
+
+
+    0.0
+
+
+
+
+```python
+explicit_fahr_to_celsius(32)
+```
+
+
+
+
+    0.0
+
+
+
+
+```python
+print('Freezing point of water:', fahr_to_celsius(32), 'C')
+print('Boiling point of water:', fahr_to_celsius(212), 'C')
+```
+
+    Freezing point of water: 0.0 C
+    Boiling point of water: 100.0 C
+
+
+
+```python
+def celsius_to_kelvin(temp_c):
+    return temp_c + 273.15
+
+print('freezing point of water in Kelvin:', celsius_to_kelvin(0.))
+```
+
+    freezing point of water in Kelvin: 273.15
+
+
+
+```python
+def fahr_to_kelvin(temp_f):
+    temp_c = fahr_to_celsius(temp_f)
+    temp_k = celsius_to_kelvin(temp_c)
+    return temp_k
+
+print('boiling point of water in Kelvin:', fahr_to_kelvin(212.0))
+```
+
+    boiling point of water in Kelvin: 373.15
+
+
+
+```python
+print('Again, temperature in Kelving was:', temp_k)
+```
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-12-be27d2dc3254> in <module>
+    ----> 1 print('Again, temperature in Kelving was:', temp_k)
+    
+
+    NameError: name 'temp_k' is not defined
+
+
+
+```python
+temp_kelvin = fahr_to_kelvin(212.0)
+print('Temperature in Kelvin was:', temp_kelvin)
+```
+
+    Temperature in Kelvin was: 373.15
+
+
+
+```python
+temp_kelvin
+```
+
+
+
+
+    373.15
+
+
+
+
+```python
+def print_temperatures():
+    print('Temperature in Farhenheit was:', temp_fahr)
+    print('Temperature in Kelvin was:', temp_kelvin)
+    
+temp_fahr = 212.0
+temp_kelvin = fahr_to_kelvin(temp_fahr)
+
+print_temperatures()
+```
+
+    Temperature in Farhenheit was: 212.0
+    Temperature in Kelvin was: 373.15
+
+
+
+```python
+
+```
+
 
 
 
