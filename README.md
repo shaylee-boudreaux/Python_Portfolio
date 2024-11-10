@@ -502,7 +502,7 @@ fig.tight_layout()
 
 ## Python Fundamentals
 
-In this analysis, we looked at the basics of Python.
+In this analysis, we looked at the basics and fundamentals of Python.
 
 ```python
 # Any python interpreter can be used as a calculator:
@@ -976,7 +976,7 @@ matplotlib.pyplot.show()
 
 ## Storing Values in Lists
 
-In this analysis, we reviewed making and storing values in lists
+In this analysis, we reviewed making and storing values in lists with Python.
 
 ```python
 odds = [1, 3, 5, 7]
@@ -1135,7 +1135,7 @@ print('Omitting ending index:', sond)
 
 ## Using Loops
 
-In this analysis, we create loops.
+In this analysis, we create and use loops in Python.
 
 ```python
 odds = [1,3,5,7]
@@ -1254,7 +1254,7 @@ print(len(name))
 
 ## Making Choices
 
-In this analysis, we review making choices.
+In this analysis, we review making choices in Python.
 
 ```python
 num = 37
@@ -1331,7 +1331,7 @@ import numpy
 
 ## Multiple Files
 
-In this analysis, we combine multiple files.
+In this analysis, we combine and use multiple files in Python.
 
 ```python
 import glob
@@ -1407,7 +1407,7 @@ for filename in filenames:
 
 ## Functions
 
-In this analysis, we create functions in Praxis.
+In this analysis, we create and use functions in Python.
 
 ```python
 import numpy
@@ -1973,7 +1973,7 @@ def std_dev(sample):
 
 ### Creating Functions Part 1 (Functions)
 
-In this analysis, we create various functions.
+In this analysis, we create and use various various functions. Multiple videos were combined in these sections.
 
 ```python
 fahrenheit_val = 99
@@ -2133,7 +2133,7 @@ print_temperatures()
 
 ## Defensive Programming
 
-In this analysis, we review programming issues.
+In this analysis, we review programming issues in Python.
 
 ```python
 numbers = [1.5, 2.3, 0.7, -0.001, 4.4]
@@ -2218,7 +2218,7 @@ print(normalize_rectangle( (0.0, 0.0, 5.0, 1.0)))
 
 ## Errors
 
-In this analysis, we review coding errors.
+In this analysis, we review common errors in Python.
 
 ```python
 # This code has an intentional error. You can type it directly
@@ -2344,6 +2344,18 @@ file_handle = open('myfile.txt', 'w')
 ```python
 
 ```
+## Command Line Programs
+
+In this analysis, we use a command line program in Python.
+
+```
+import sys
+```
+
+```
+print('sys.argv is', sys.argv)
+```
+
 
 ## Transcribing DNA into RNA
 
@@ -2519,6 +2531,6 @@ print(protein_sequence)
 
 ```
 
-
+### Coronavirus Genomics is not available on Praxis (only shown on final project list in youtube video).
 
 
